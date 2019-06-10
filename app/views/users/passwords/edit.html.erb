@@ -1,7 +1,15 @@
-<div class="row">
-  <div class="col">
-    <h2>Change your password</h2>
-
+<div class="container">
+  <div class="columns is-mobile">
+    <div class="column is-half is-offset-one-quarter">
+      <%= image_tag '/logo.png', class: 'logo-devise' %>
+      <div class="card">
+        <header class="card-header">
+          <p class="card-header-title">
+            Alterar senha
+          </p>
+        </header>
+        <div class="card-content">
+          <div class="content">
     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
       <%= render "users/shared/error_messages", resource: resource %>
       <%= f.hidden_field :reset_password_token %>
@@ -24,6 +32,12 @@
       </p>
     <% end %>
 
-    <%= render "users/shared/links" %>
+            <%= render "devise/shared/links" %>
+          </div>
+        </div>
+        <footer class="card-footer">
+        </footer>
+      </div>
+    </div>
   </div>
 </div>

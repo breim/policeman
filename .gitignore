@@ -5,3 +5,6 @@ tmp/
 .sass-cache/
 spec/examples.txt
 .idea/
+
+# Ignore application configuration
+/config/application.yml
