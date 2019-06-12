@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Api::V1
+module Api
   class CredentialsController < ApiController
     before_action :doorkeeper_authorize!
 

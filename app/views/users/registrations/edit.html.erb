@@ -1,7 +1,6 @@
-
 <div class="container">
-  <div class="columns is-mobile">
-    <div class="column is-half is-offset-one-quarter">
+  <div class="columns is-mobile is-centered">
+    <div class="column is-three-quarters">
       <%= image_tag '/logo.png', class: 'logo-devise' %>
       <div class="card">
         <header class="card-header">
@@ -23,7 +22,7 @@
               <%= f.label :senha %> <i>(deixe em branco se você não quiser mudá-lo)</i>
               <%= f.password_field :password, autofocus: true, class: 'input', autocomplete: "new-password" %>
               <% if @minimum_password_length %>
-                <small class="form-text text-muted"><%= @minimum_password_length %> mínimo de caracteres</small>
+              <small class="form-text text-muted"><%= @minimum_password_length %> mínimo de caracteres</small>
               <% end %>
             </div>
             
@@ -38,7 +37,6 @@
             </p>
             <% end %>
 
-            <%= render "devise/shared/links" %>
           </div>
         </div>
         <footer class="card-footer">

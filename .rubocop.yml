@@ -1,8 +1,23 @@
 require: rubocop-performance
 
-inherit_gem:
-  rubocop-rails_config:
-    - config/rails.yml
-
 AllCops:
-  TargetRubyVersion: 2.3
+  Exclude:
+    - db/**/**
+    - config/spring.rb
+    - bin/**
+    - config/environments/**
+    - test/**/**
+    - config/routes.rb
+    - lib/tasks/queue.rake
+Metrics/LineLength:
+  Max: 170
+Metrics/MethodLength:
+  Max: 40
+Metrics/AbcSize:
+  Max: 50
+Metrics/BlockLength:
+  ExcludedMethods: ['describe', 'context', 'namespace']
+Style/Lambda:
+  Enabled: false
+Documentation:
+  Enabled: false

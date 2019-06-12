@@ -8,8 +8,7 @@ class OauthApplicationsController < ApplicationController
     @applications = current_user.oauth_applications.ordered_by(:created_at)
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @application = current_user.oauth_applications.new
@@ -38,20 +37,18 @@ class OauthApplicationsController < ApplicationController
   end
 
   def destroy
-    if @application.destroy
-      flash[:notice] = I18n.t(:notice, scope: %i[doorkeeper flash applications destroy])
-    end
+    flash[:notice] = I18n.t(:notice, scope: %i[doorkeeper flash applications destroy]) if @application.destroy
 
     redirect_to oauth_applications_url
   end
 
   private
 
-    def set_application
-      @application = current_user.oauth_applications.find(params[:id])
-    end
+  def set_application
+    @application = current_user.oauth_applications.find(params[:id])
+  end
 
-    def application_params
-      params.require(:doorkeeper_application).permit(:name, :redirect_uri, :scopes, :confidential)
-    end
+  def application_params
+    params.require(:doorkeeper_application).permit(:name, :redirect_uri, :scopes, :confidential)
+  end
 end
