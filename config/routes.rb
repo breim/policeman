@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  root to: 'home#index'
+
   use_doorkeeper do
     controllers applications: 'oauth_applications'
   end
@@ -9,15 +11,9 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
 
-  # Project administration via UI
-  resources :projects
-
   namespace :api do
     namespace :v1 do
-      resources :projects
       get '/me' => 'credentials#me'
     end
   end
-
-  root to: 'home#index'
 end
