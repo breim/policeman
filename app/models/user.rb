@@ -25,4 +25,10 @@ class User < ApplicationRecord
            as: :owner
 
   has_many :projects, dependent: :delete_all
+
+  validates :first_name, :last_name, presence: true
+
+  def remember_me
+    true
+  end
 end

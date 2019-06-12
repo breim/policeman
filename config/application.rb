@@ -25,9 +25,9 @@ module DoorkeeperProvider
     config.load_defaults 5.2
 
     # Brazilian datetime and lang
-    # config.time_zone = 'Brasilia'
-    # config.active_record.default_timezone = :utc
-    # config.i18n.default_locale = :'pt-BR'
+    config.time_zone = 'Brasilia'
+    config.active_record.default_timezone = :utc
+    config.i18n.default_locale = :'pt-BR'
 
     config.to_prepare do
       # Only Applications list
