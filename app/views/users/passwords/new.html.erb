@@ -1,20 +1,31 @@
-<div class="row">
-  <div class="col">
-    <h2>Forgot your password?</h2>
-
-    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-      <%= render "users/shared/error_messages", resource: resource %>
-
-      <div class="form-group">
-        <%= f.label :email %>
-        <%= f.email_field :email, class: 'form-control', autofocus: true, autocomplete: "email" %>
+<div class="container">
+  <div class="columns is-mobile is-centered">
+    <div class="column is-three-quarters">
+      <%= image_tag '/logo.png', class: 'logo-devise' %>
+      <div class="card">
+        <header class="card-header">
+          <p class="card-header-title">
+            Esqueceu a senha?
+          </p>
+        </header>
+        <div class="card-content">
+          <div class="content">
+            <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>            <%= render "users/shared/error_messages", resource: resource %>
+            
+            <div class="field">
+              <%= f.label :email %><br />
+              <%= f.email_field :email, class: 'input', autofocus: true, autocomplete: "email" %>
+            </div>
+            <div class="actions">
+              <%= f.submit "Receber uma nova senha por email", class: 'button is-link' %>
+            </div>
+            <% end %>
+            <%= render "users/shared/links" %>
+          </div>
+        </div>
+        <footer class="card-footer">
+        </footer>
       </div>
-
-      <p>
-        <%= f.submit "Send me reset password instructions", class: 'btn btn-primary' %>
-      </p>
-    <% end %>
-
-    <%= render "users/shared/links" %>
+    </div>
   </div>
 </div>
