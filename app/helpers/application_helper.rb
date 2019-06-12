@@ -11,4 +11,9 @@ module ApplicationHelper
   def readme_to_markdown
     markdown(File.read(Rails.root + 'README.md'))
   end
+
+  def badge_status(status)
+    return "<span class='tag is-danger'>Bloqueado</span>".html_safe if status.eql? true
+    return "<span class='tag is-success'>Ativo</span>".html_safe if status.eql? false
+  end
 end

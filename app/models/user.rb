@@ -31,4 +31,12 @@ class User < ApplicationRecord
   def remember_me
     true
   end
+
+  self.per_page = 10
+
+  include PgSearch
+  pg_search_scope :search, against: %i[first_name last_name email],
+                           using: {
+                             tsearch: { prefix: true }
+                           }
 end

@@ -14,4 +14,8 @@ Rails.application.routes.draw do
   namespace :api do
     get '/me' => 'credentials#me'
   end
+
+  namespace :admin do
+    resources :users
+  end
 end

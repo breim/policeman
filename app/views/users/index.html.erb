@@ -1,0 +1,70 @@
+<div class="container card-superior">
+  <div class="card">
+    <header class="card-header">
+      <p class="card-header-title">
+        Usuários
+      </p>
+    </header>
+    <div class="card-content">
+
+
+  <div class="field has-addons">
+    <div class="control">
+      <input type="text" class="input is-info" placeholder="Input number in seconds">
+    </div>
+    <div class="control">
+        <a class="button is-primary">Buscar</a>
+    </div>
+  </div>
+
+
+  <div class="col-lg-4 col-md-6 col-sm-5">
+    <%= form_tag(admin_users_path, class: 'row', method: :get) do %>
+    <div class="zcol-12 col-sm pr-sm-0">
+      <%= text_field_tag :search, params[:search], placeholder: 'Nome ou e-mail', class: 'input' %>
+    </div>
+    <div class="col-12 col-sm-auto pl-sm-0">
+      <%= button_tag(type: 'submit', class: 'button is-primary') do %>
+        Buscar
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+
+<div class="row">  
+  <div class="col-sm-12">
+    <div class="card">
+      <div class="card-body">
+        <table class="table is-hoverable">
+          <thead class="">
+            <tr>
+              <th>#</th>
+              <th>Nome</th>
+              <th>Email</th>
+              <th>Status</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <% @users.each do |user| %>
+          <tr>
+            <td><%= link_to user.id, user_path(user.id) %></td>
+            <td><%= link_to "#{user.first_name} #{user.last_name}", user_path(user.id) %></td>
+            <td><%= user.email %></td>
+            <td><%= badge_status(user.blocked) %></td>
+            <td><%= link_to "Logar como", user_path(user.id, params: { login_as_user: true }) %></td>
+            <td><%= link_to "Editar", edit_user_path(user.id) %></td>
+          </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= render 'shared/paginate', collection: @users %>
+
+    </div>
+  </div>
+</div>
+

@@ -34,3 +34,7 @@ html {
 .field_with_errors {
   color: red;
 }
+
+.button.is-danger.is-outlined:hover{
+  background-color: #ff3860 !important;
+}

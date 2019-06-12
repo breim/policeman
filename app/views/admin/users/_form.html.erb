@@ -1,0 +1,39 @@
+<%= form_for([:admin, @user]) do |f| %>
+
+  <div class="columns">
+    <div class="column">
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name, required: true, class: 'input required' %>
+    </div>
+
+    <div class="column">
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name, required: true, class: 'input required' %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group required">
+        <%= f.label :email %>
+        <%= f.text_field :email, class: 'input' %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <%= f.label :password %>
+        <%= f.password_field :password, class: 'input' %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3">
+      <%= f.label :blocked, 'Bloquear usuário' %>
+      <%= f.check_box :blocked %>
+    </div>
+  </div>
+  <br/>
+  <%= f.submit "Salvar", class: 'button is-link' %>
+<% end %>
