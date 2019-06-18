@@ -35,12 +35,7 @@ module DoorkeeperProvider
     config.to_prepare do
       # Only Applications list
       Doorkeeper::ApplicationsController.layout 'application'
-
-      # Only Authorization endpoint
-      # Doorkeeper::AuthorizationsController.layout 'application'
-
-      # Only Authorized Applications
-      # Doorkeeper::AuthorizedApplicationsController.layout 'application'
+      Doorkeeper::AuthorizationsController.layout 'application'
     end
   end
 end

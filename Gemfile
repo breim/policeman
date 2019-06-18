@@ -14,6 +14,8 @@ gem 'faker'
 gem 'figaro'
 gem 'jquery-rails'
 
+gem 'mechanize'
+
 gem 'coderay'
 gem 'redcarpet'
 
