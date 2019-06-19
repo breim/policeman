@@ -1,20 +1,33 @@
-<div class="row">
-  <div class="col">
-    <h2>Resend confirmation instructions</h2>
+<div class="container">
+  <div class="columns is-mobile is-centered">
+    <div class="column is-three-quarters">
+      <%= image_tag '/logo.png', class: 'logo-devise' %>
+      <div class="card">
+        <header class="card-header">
+          <p class="card-header-title">
+            Reenviar e-mail de confirmação
+          </p>
+        </header>
+        <div class="card-content">
+          <div class="content">
+            <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
 
-    <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-      <%= render "users/shared/error_messages", resource: resource %>
-
-      <div class="form-group">
-        <%= f.label :email %>
-        <%= f.email_field :email, class: 'form-control', autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+            <%= render "users/shared/error_messages", resource: resource %>
+            
+            <div class="form-group">
+              <%= f.label :email %>
+              <%= f.email_field :email, class: 'input', autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+            </div>
+            <div class="actions">
+              <%= f.submit "Receber um novo e-mail de confirmação", class: 'button is-link' %>
+            </div>
+            <% end %>
+            <%= render "users/shared/links" %>
+          </div>
+        </div>
+        <footer class="card-footer">
+        </footer>
       </div>
-
-      <p>
-        <%= f.submit "Resend confirmation instructions", class: 'btn btn-primary' %>
-      </p>
-    <% end %>
-
-    <%= render "users/shared/links" %>
+    </div>
   </div>
 </div>
